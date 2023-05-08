@@ -22,8 +22,9 @@ if (!empty($_POST['item'])) {
         }
     } else {
         array_push($products, $todoItem);
-        file_put_contents('./store.json', json_encode($products));
+        /* file_put_contents('./store.json', json_encode($products)); */
     }
+    file_put_contents('./store.json', json_encode($products));
 }
 
 header('Content-Type: application/json');
