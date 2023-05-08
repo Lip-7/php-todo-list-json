@@ -2,7 +2,7 @@
     <li class="py-1 px-9 relative">
         <span class="">{{ text }}</span>
         <i class="fa-solid fa-trash absolute right-2 text-red-500 cursor-pointer hover:text-red-400" @click="deleteTask()"></i>
-        <i class="fa-solid fa-check absolute left-2 cursor-pointer hover:text-emerald-400"></i>
+        <i class="fa-solid fa-check absolute left-2 cursor-pointer hover:text-emerald-400" @click="changeStateTask()"></i>
     </li>
 </template>
   
@@ -26,7 +26,8 @@ export default {
 
         },
         changeStateTask() {
-            
+            const data = this.generateItem('edit');
+            this.postItem(data);
         },
         generateItem(action) {
             /* Accept 2 params: edit o delete */
