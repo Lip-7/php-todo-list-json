@@ -4,7 +4,7 @@
             <h1 class=" text-4xl font-bold text-white pb-3">{{ title }}</h1>
             <ul class="">
                <!--  <li v-for="(todo, index) in todoList" :key="index" class="m-1" :class="{'bg-slate-700' : todo.state, 'bg-emerald-800 decoration-slice' : !todo.state}">{{ todo.itemContent }}</li> -->
-                <TodoItem v-for="(todo, index) in store.todoList" :key="index" class="m-1" :class="{'bg-slate-700' : todo.state, 'bg-emerald-800 decoration-slice' : !todo.state}" :text="todo.itemContent"></TodoItem>
+                <TodoItem v-for="(todo, index) in store.todoList" :key="index" class="m-1" :class="{'bg-slate-700' : todo.state == 'true', 'bg-emerald-800 line-through' : todo.state == 'false'}" :text="todo.itemContent"></TodoItem>
             </ul>
             <div class="p-5 space-x-2">
                 <input class="text-black" @keyup.enter="updateList()" v-model="todoItem" type="text">

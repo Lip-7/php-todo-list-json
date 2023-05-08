@@ -14,9 +14,14 @@ if (!empty($_POST['item'])) {
                 return $val['itemContent'] == $todoItem['itemContent'] ? false : true;
             });
         } else {
-            foreach ($products as $obj) {
-                if ($obj['itemContent'] == $todoItem['itemContent']) {
-                    $todoItem['state'] = !$todoItem['state'];
+            for ($i = 0; $i < count($products); $i++) {
+                if ($todoItem['itemContent'] == $products[$i]['itemContent']) {
+                    /* $products[$i]['state'] = $todoItem['state'] == 'true' ? 'false' : 'true'; */ /* Mo me devi spiegà perchè sto ternario non workava */
+                    if($products[$i]['state'] == 'true') {
+                        $products[$i]['state'] = 'false'; 
+                    }else{
+                        $products[$i]['state'] = 'true';
+                    }
                 }
             }
         }
