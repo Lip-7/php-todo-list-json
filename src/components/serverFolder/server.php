@@ -11,7 +11,7 @@ if (!empty($_POST['item'])) {
         if ($todoItem['action'] == 'delete') {
             $products = array_filter($products, function ($val) {
                 $todoItem = $_POST['item'];
-                return $val['itemContent'] == $todoItem['itemContent'] ? true : false;
+                return $val['itemContent'] == $todoItem['itemContent'] ? false : true;
             });
         } else {
             foreach ($products as $obj) {
